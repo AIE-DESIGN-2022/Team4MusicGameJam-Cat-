@@ -110,7 +110,7 @@ public class EnemyNav : MonoBehaviour
         }*/
 
         //every frame we are checking the distance between the enemy and its patrol point
-        float distanceToTarget = Vector3.Distance(transform.position, patrolPoints[currentDestination]);
+        float distanceToTarget = Vector3.Distance(transform.position, nextPoint);
 
         //every frame we are checking the distance between the enemy and the player
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -199,7 +199,7 @@ public class EnemyNav : MonoBehaviour
             // adding 1 to the nextLocation so that next time we run through the function we are checking the next point in the array
             currentDestination = nextLocation;
             nextLocation++;
-            SetAgentPatrolDestination();
+            SetPlayerSightedDestination();
         }
         //Otherwise we are out of patrol points so go back to the first one and start the loop again.
         else
@@ -207,7 +207,7 @@ public class EnemyNav : MonoBehaviour
             Debug.Log("please");
             nextLocation = 0;
             currentDestination = - 1;
-            SetAgentPatrolDestination();
+            SetPlayerSightedDestination();
         }
     }
     // this function is caled when the player is sighted and the enemy destinain is set to the last seen player position
