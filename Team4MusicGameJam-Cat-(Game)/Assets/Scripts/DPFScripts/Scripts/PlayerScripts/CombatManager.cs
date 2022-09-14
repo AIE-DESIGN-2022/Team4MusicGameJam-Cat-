@@ -54,7 +54,6 @@ public class CombatManager : MonoBehaviour
         reticleImage.transform.position = Input.mousePosition;
 
             //Rotates the gun to face the mouse.
-            Debug.Log(Camera.main.name);
         var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(gunRotation.transform.position);
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         gunRotation.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
