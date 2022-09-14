@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 208739579}
   - component: {fileID: 208739578}
   - component: {fileID: 208739577}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -714,10 +714,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2769443021339109331, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_TagString
-      value: Detector
-      objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: reticleImage
       value: 
@@ -726,10 +722,6 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 686571183}
-    - target: {fileID: 3027670882822471592, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471595, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -777,10 +769,6 @@ PrefabInstance:
     - target: {fileID: 3027670882822471599, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3649927935039546607, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_TagString
-      value: Detector
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
@@ -898,7 +886,7 @@ GameObject:
   - component: {fileID: 723157848}
   - component: {fileID: 723157847}
   - component: {fileID: 723157846}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -988,6 +976,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8276035175068702405, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8276035175068702408, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
       propertyPath: m_Enabled
       value: 0
