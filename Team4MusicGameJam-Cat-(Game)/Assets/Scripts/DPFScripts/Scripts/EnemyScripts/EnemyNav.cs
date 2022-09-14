@@ -33,6 +33,10 @@ public class EnemyNav : MonoBehaviour
     public GameObject lookAtObject;
 
     private CharacterController _characterController;
+
+    private Vector3 nextPoint;
+    public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +50,7 @@ public class EnemyNav : MonoBehaviour
         currentDestination = -1;
         SetAgentPatrolDestination();
         enemyCombat = GetComponent<EnemyCombat>();
+        nextPoint = patrolPoints[nextLocation];
     }
 
     bool CanSeePlayer()
@@ -123,10 +128,12 @@ public class EnemyNav : MonoBehaviour
         //rest of update dictates what the enemy will do depending on its state.
         if (enemyState == EnemyState.Patrol)
         {
-            //checkng if the enemy has reached its patrol point with some threshold allowance for distance.
+
+            transform.position = Vector3.MoveTowards(transform.position, nextPoint, speed * Time.deltaTime);
+            //checking if the enemy has reached its patrol point with some threshold allowance for distance.
             if (distanceToTarget <= distanceReachedThreshold)
             {
-                //confirming thw enemy is at the location and is selling to the next patrol point in the array
+                //confirming the enemy is at the location and is selling to the next patrol point in the array
                 SetAgentPatrolDestination();
             }
         }
@@ -186,15 +193,18 @@ public class EnemyNav : MonoBehaviour
         //Checking to make sure that we have a patrol point to move to, that the array has not run out.
         if (patrolPoints.Length > nextLocation)
         {
+            Debug.Log("work");
              //if we do have the next posion avaliable in the array, set the enemy destination to that point
             //agent.SetDestination(patrolPoints[nextLocation].position);
             // adding 1 to the nextLocation so that next time we run through the function we are checking the next point in the array
             currentDestination = nextLocation;
             nextLocation++;
+            SetAgentPatrolDestination();
         }
         //Otherwise we are out of patrol points so go back to the first one and start the loop again.
         else
         {
+            Debug.Log("please");
             nextLocation = 0;
             currentDestination = - 1;
             SetAgentPatrolDestination();
@@ -203,6 +213,6 @@ public class EnemyNav : MonoBehaviour
     // this function is caled when the player is sighted and the enemy destinain is set to the last seen player position
     void SetPlayerSightedDestination()
     {
-        //agent.SetDestination(playerSightedPosition);
+        nextPoint = patrolPoints[nextLocation];
     }
 }
