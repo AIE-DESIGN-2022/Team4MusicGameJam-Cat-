@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
+    public bool wallToRight;
+    public bool wallToleft;
+
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +39,11 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
+        if ((!wallToRight && horizontalMove > 0) ^ (!wallToleft && horizontalMove < 0))
+        {
+            controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+            jump = false;
+        }
+        
     }
 }
