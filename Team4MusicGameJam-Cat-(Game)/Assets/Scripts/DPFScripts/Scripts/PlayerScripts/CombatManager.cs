@@ -36,29 +36,27 @@ public class CombatManager : MonoBehaviour
     {
         if (player.GetComponent<CharacterController>().canInteract == true)
         {
-            spawnTime += Time.deltaTime;
+        spawnTime += Time.deltaTime;
 
 
-            if (spawnTime >= spawnDelay)
+        if (spawnTime >= spawnDelay)
+        {
+            //Checks if the "Fire1 is pressed"
+            if (Input.GetButton("Fire1"))
             {
-                //Checks if the "Fire1 is pressed"
-                if (Input.GetButton("Fire1"))
-                {
-                    //spawns in pistol bullet projectile.
-                    GameObject projectileClone = Instantiate(pistolProjectile, spawnPosition.position, spawnPosition.rotation);
-                    //sets the spawn time to 0,
-                    spawnTime = 0;
-                }
+                //spawns in pistol bullet projectile.
+                GameObject projectileClone = Instantiate(pistolProjectile, spawnPosition.position, spawnPosition.rotation);
+                //sets the spawn time to 0,
+                spawnTime = 0;
             }
-   
+        }
+        //Moves the reticle to the position of the mouse.
+        reticleImage.transform.position = Input.mousePosition;
 
-                //Moves the reticle to the position of the mouse.
-                reticleImage.transform.position = Input.mousePosition;
-
-                //Rotates the gun to face the mouse.
-                var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(gunRotation.transform.position);
-                var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                gunRotation.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //Rotates the gun to face the mouse.
+        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(gunRotation.transform.position);
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        gunRotation.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         }
     }

@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PistolAmmoCreate
+  - Bullet
+  - AssaultRifleAmmoCreate
+  - Gun
+  - ShotgunAmmoCreate
+  - Enemy
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -11,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - PlayerBullet
+  - Player
   - 
   - 
   - 

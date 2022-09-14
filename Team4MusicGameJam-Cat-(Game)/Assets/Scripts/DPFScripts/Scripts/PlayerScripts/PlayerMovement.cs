@@ -39,7 +39,19 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Move our character
-        if ((!wallToRight && horizontalMove > 0) ^ (!wallToleft && horizontalMove < 0))
+        if (wallToRight && horizontalMove > 0)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y);
+            controller.Move(0, crouch, jump);
+            jump = false;
+        }
+        else if (wallToleft && horizontalMove < 0)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y);
+            controller.Move(0, crouch, jump);
+            jump = false;
+        }
+        else
         {
             controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
             jump = false;
