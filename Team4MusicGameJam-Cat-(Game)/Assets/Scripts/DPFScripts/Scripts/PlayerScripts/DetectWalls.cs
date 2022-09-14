@@ -38,11 +38,11 @@ public class DetectWalls : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (right && collision.tag == "Floor")
+        if (right && (collision.tag == "Floor" || collision.tag == "Enemy"))
         {
             player.wallToRight = false;
         }
-        else if (collision.tag == "Floor")
+        else if (collision.tag == "Floor" || collision.tag == "Enemy")
         {
             player.wallToleft = false;
         }

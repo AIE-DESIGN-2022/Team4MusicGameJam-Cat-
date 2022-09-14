@@ -55,7 +55,7 @@ public class CharacterController : MonoBehaviour
 		Collider[] colliders = Physics.OverlapSphere(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject)
+			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "Detector")
 			{
 				m_Grounded = true;
 				if (!wasGrounded)
