@@ -20,8 +20,6 @@ public class CharacterController : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
-	public int timesJumped;
-	private bool canDoubleJump;
 	public bool wasCrouched;
 
 	[Header("Events")]
@@ -146,21 +144,9 @@ public class CharacterController : MonoBehaviour
 			// If the player should jump...
 			if (m_Grounded && jump)
 			{
-				timesJumped = 0;
 				m_Grounded = true;
 				m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce), ForceMode.VelocityChange);
 
-				timesJumped++;
-
-			}
-
-			if (!m_Grounded && jump && timesJumped == 1)
-			{
-				m_Grounded = false;
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, 0, 0);
-				m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce), ForceMode.VelocityChange);
-
-				timesJumped = 0;
 			}
 
 		}
