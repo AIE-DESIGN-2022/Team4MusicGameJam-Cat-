@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class CombatManager : MonoBehaviour
 {
 
@@ -51,11 +50,7 @@ public class CombatManager : MonoBehaviour
                     spawnTime = 0;
                 }
             }
-            //Checks if "Fire2" has been pressed.
-            if (Input.GetButton("Fire2"))
-            {
-                //shows the reticle icon. 
-                reticleImage.enabled = true;
+   
 
                 //Moves the reticle to the position of the mouse.
                 reticleImage.transform.position = Input.mousePosition;
@@ -64,21 +59,6 @@ public class CombatManager : MonoBehaviour
                 var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(gunRotation.transform.position);
                 var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 gunRotation.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-
-            }
-
-            //checks if "Fire2" button has been released.
-            else if (Input.GetButtonUp("Fire2"))
-            {
-                //Disables the reticle on the UI.
-                reticleImage.enabled = false;
-                //Cursor.lockState = CursorLockMode.Locked;
-                //Rotation.transform.Rotate(0.0f, 0.0f, 0.0f);
-
-                //Sets the Rotation of the gun to 0.
-                gunObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            }
 
         }
     }
