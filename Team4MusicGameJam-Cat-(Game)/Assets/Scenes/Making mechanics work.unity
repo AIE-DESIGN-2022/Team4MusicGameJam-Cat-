@@ -714,6 +714,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2769443021339109331, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: reticleImage
       value: 
@@ -728,11 +732,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471595, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.88
+      value: 11.03
       objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471595, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.9842315
+      value: 4.23
       objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471595, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -979,6 +983,10 @@ PrefabInstance:
     - target: {fileID: 8276035175068702405, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
       propertyPath: m_Radius
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276035175068702405, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8276035175068702408, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
       propertyPath: m_Enabled

@@ -9,6 +9,7 @@ public class DetectWalls : MonoBehaviour
     public PlayerMovement player;
     public bool right;
     private float lastX;
+    private GameObject otherCollision;
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
@@ -18,21 +19,35 @@ public class DetectWalls : MonoBehaviour
     void Update()
     {
         lastX = transform.position.x;
+
+        if (otherCollision == null || !otherCollision.activeInHierarchy)
+        {
+            if (right)
+            {
+                player.wallToRight = false;
+            }
+            else
+            {
+                player.wallToleft = false;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (right && collision.tag == "Floor")
+        if (right && (collision.tag == "Floor" || collision.tag == "Enemy"))
         {
             player.transform.position = new Vector3(lastX, transform.position.y, transform.position.z);
             Debug.Log("hit wall to right");
             player.wallToRight = true;
+            otherCollision = collision.gameObject;
         }
-        else if(collision.tag == "Floor")
+        else if(collision.tag == "Floor" || collision.tag == "Enemy")
         {
             player.transform.position = new Vector3(lastX, transform.position.y, transform.position.z);
             Debug.Log("hit wall to left");
             player.wallToleft = true;
+            otherCollision = collision.gameObject;
         }
     }
 
@@ -41,10 +56,12 @@ public class DetectWalls : MonoBehaviour
         if (right && (collision.tag == "Floor" || collision.tag == "Enemy"))
         {
             player.wallToRight = false;
+            otherCollision = null;
         }
         else if (collision.tag == "Floor" || collision.tag == "Enemy")
         {
             player.wallToleft = false;
+            otherCollision = null;
         }
     }
 }
