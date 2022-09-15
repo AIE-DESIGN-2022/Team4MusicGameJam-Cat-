@@ -14,7 +14,10 @@ public class PlayerMovement : MonoBehaviour
     bool crouch = false;
 
     public bool wallToRight;
-    public bool wallToleft;
+    public bool wallToLeft;
+
+    public GameObject rightWall;
+    public GameObject leftWall;
 
     [SerializeField] float dashCooldownTimer = 0, dashCooldown = 2;
     [SerializeField] ParticleSystem dashParticle;
@@ -46,11 +49,15 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Move Left"))
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z);
+            rightWall.GetComponent<DetectWalls>().right = false;
+            leftWall.GetComponent<DetectWalls>().right = true;
         }
 
         if (Input.GetButtonDown("Move Right"))
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
+            leftWall.GetComponent<DetectWalls>().right = true;
+            rightWall.GetComponent<DetectWalls>().right = false;
         }
 
         if (Input.GetButtonDown("Dash"))
@@ -85,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(0, crouch, jump);
             jump = false;
         }
-        else if (wallToleft && horizontalMove < 0)
+        else if (wallToLeft && horizontalMove < 0)
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y);
             controller.Move(0, crouch, jump);
