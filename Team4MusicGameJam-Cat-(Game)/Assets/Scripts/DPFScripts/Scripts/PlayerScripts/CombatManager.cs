@@ -11,6 +11,7 @@ public class CombatManager : MonoBehaviour
 
     public Transform spawnPosition;
     public GameObject pistolProjectile;
+    [SerializeField] private GameObject chargedProjectile;
 
     public GameObject pistol;
 
@@ -30,12 +31,14 @@ public class CombatManager : MonoBehaviour
     m_chargeSpeed = 1.5f, 
     m_cooldownTimer = 0, m_cooldownTime = 3, m_CDChargeProgressModifier = 100, m_cooldownPercent;
 
+    [SerializeField] private int m_numChargedProjectiles = 3;
 
     [SerializeField] private bool isFullyCharged = false, isOnCooldown = false;
 
     [SerializeField] private Slider m_chargeProgressBar;
     [SerializeField] private RectTransform m_cooldownDisplay;
 
+    [SerializeField] private float m_recoilMultiplier = 20;
     // Start is called before the first frame update.
     void Start()
     {
@@ -56,44 +59,51 @@ public class CombatManager : MonoBehaviour
     {
         if (!isOnCooldown)
         {
-            if (true/*!Input.GetButton("Fire1")*/)
+            // while charging charged attack
+            if (Input.GetButton("Charge Attack"))
             {
-                // while charging charged attack
-                if (Input.GetButton("Charge Attack"))
+
+                if (m_chargeProgress >= m_chargeTime)
                 {
-
-                    if (m_chargeProgress >= m_chargeTime)
-                    {
-                        m_chargeProgress = m_chargeTime;
-                        isFullyCharged = true;
-                    }
-                    else
-                    {
-                        m_chargeProgress += Time.deltaTime * m_chargeSpeed;
-                    }
-
-                    m_chargeProgressPercent = m_chargeProgress / m_chargeTime * 100;
+                    m_chargeProgress = m_chargeTime;
+                    isFullyCharged = true;
+                }
+                else
+                {
+                    m_chargeProgress += Time.deltaTime * m_chargeSpeed;
                 }
 
-                // When charge is cancelled and attack is made
-                if (Input.GetButtonUp("Charge Attack"))
-                {
-                    // only shoot projectile if it is charged past percent threshold
-                    if (m_chargeProgressPercent >= m_chargeShootThresholdPercent)
-                    {
-                        // shoot
-                        GameObject projectileClone = Instantiate(pistolProjectile, spawnPosition.position, spawnPosition.rotation);
+                m_chargeProgressPercent = m_chargeProgress / m_chargeTime * 100;
+            }
 
-                        //sets the spawn time to 0,
-                        spawnTime = 0;
+            // When charge is cancelled and attack is made
+            if (Input.GetButtonUp("Charge Attack"))
+            {
+                // only shoot projectile if it is charged past percent threshold
+                if (m_chargeProgressPercent >= m_chargeShootThresholdPercent)
+                {
+                    // shoot
+                    List<GameObject> chargedProjectiles = new List<GameObject>();
+
+                    for (int i = 0; i < m_numChargedProjectiles; i++)
+                    {
+                        GameObject projectile = Instantiate(chargedProjectile, spawnPosition.position, spawnPosition.rotation);
+                        chargedProjectiles.Add(projectile);
                     }
 
-                    m_lastChargeProgressPercent = m_chargeProgressPercent;
-                    isOnCooldown = true;
-                    m_chargeProgressPercent = 0;
-                    isFullyCharged = false;
-                    m_chargeProgress = 0;
+                    Vector3 dir = (transform.position - gunRotation.GetChild(1).position).normalized;
+                    dir.x = -dir.x;
+
+                    transform.GetComponent<Rigidbody>().AddRelativeForce(dir * m_recoilMultiplier, ForceMode.Impulse);
+
+                    //(new Vector3(gunRotation.transform.right.x * xRecoil, -gunRotation.transform.right.y * yRecoil, 0))
                 }
+
+                m_lastChargeProgressPercent = m_chargeProgressPercent;
+                isOnCooldown = true;
+                m_chargeProgressPercent = 0;
+                isFullyCharged = false;
+                m_chargeProgress = 0;
             }
 
             m_chargeProgressBar.value = m_chargeProgressPercent;
@@ -117,29 +127,32 @@ public class CombatManager : MonoBehaviour
         
         if (player.GetComponent<CharacterController>().canInteract == true)
         {
-        spawnTime += Time.deltaTime;
+            spawnTime += Time.deltaTime;
 
 
-        if (spawnTime >= spawnDelay)
-        {
-            //Checks if the "Fire1 is pressed"
-            if (Input.GetButton("Fire1"))
+            if (spawnTime >= spawnDelay)
             {
-                //spawns in pistol bullet projectile.
-                GameObject projectileClone = Instantiate(pistolProjectile, spawnPosition.position, spawnPosition.rotation);
+                //Checks if the "Fire1 is pressed"
+                if (Input.GetButton("Fire1"))
+                {
+                    if (!Input.GetButton("Charge Attack"))
+                    {
+                        //spawns in pistol bullet projectile.
+                        GameObject projectileClone = Instantiate(pistolProjectile, spawnPosition.position, spawnPosition.rotation);
+                        
+                        //sets the spawn time to 0,
+                        spawnTime = 0;
 
-                //sets the spawn time to 0,
-                spawnTime = 0;
-
-                source.clip = sounds[Random.Range(0, sounds.Length)];
-                source.Play();
+                        source.clip = sounds[Random.Range(0, sounds.Length)];
+                        source.Play();
+                    }
+                }
             }
-        }
 
-        //Rotates the gun to face the mouse.
-        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(gunRotation.transform.position);
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        gunRotation.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //Rotates the gun to face the mouse.
+            var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(gunRotation.transform.position);
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            gunRotation.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         }
     }
