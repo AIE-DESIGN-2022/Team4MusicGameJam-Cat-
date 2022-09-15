@@ -20,6 +20,8 @@ public class randomSoundGenerator : MonoBehaviour
         {
             source.clip = sounds[Random.Range(0, sounds.Length)];
             source.Play();
+
         }
+        //if 
     }
 }

@@ -21,9 +21,16 @@ public class CombatManager : MonoBehaviour
 
     private GameObject player;
 
+    public AudioClip[] sounds;
+    private AudioSource source;
+
     // Start is called before the first frame update.
     void Start()
     {
+
+        source = GetComponent<AudioSource>();
+
+
         player = GameObject.FindGameObjectWithTag("Player");
         reticleImage.enabled = false;
 
@@ -46,9 +53,13 @@ public class CombatManager : MonoBehaviour
             {
                 //spawns in pistol bullet projectile.
                 GameObject projectileClone = Instantiate(pistolProjectile, spawnPosition.position, spawnPosition.rotation);
-                //sets the spawn time to 0,
-                spawnTime = 0;
-            }
+
+                    //sets the spawn time to 0,
+                    spawnTime = 0;
+
+                    source.clip = sounds[Random.Range(0, sounds.Length)];
+                    source.Play();
+                }
         }
         //Moves the reticle to the position of the mouse.
         reticleImage.transform.position = Input.mousePosition;
