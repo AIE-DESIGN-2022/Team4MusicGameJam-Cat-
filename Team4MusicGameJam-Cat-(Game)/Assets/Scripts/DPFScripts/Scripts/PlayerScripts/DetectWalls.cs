@@ -28,7 +28,7 @@ public class DetectWalls : MonoBehaviour
             }
             else
             {
-                player.wallToleft = false;
+                player.wallToLeft = false;
             }
         }
     }
@@ -46,7 +46,7 @@ public class DetectWalls : MonoBehaviour
         {
             player.transform.position = new Vector3(lastX, transform.position.y, transform.position.z);
             Debug.Log("hit wall to left");
-            player.wallToleft = true;
+            player.wallToLeft = true;
             otherCollision = collision.gameObject;
         }
     }
@@ -60,7 +60,7 @@ public class DetectWalls : MonoBehaviour
         }
         else if (collision.tag == "Floor" || collision.tag == "Enemy")
         {
-            player.wallToleft = false;
+            player.wallToLeft = false;
             otherCollision = null;
         }
     }

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5620213703976451941}
   - component: {fileID: 4372563653007448731}
   - component: {fileID: 726579644356801830}
+  - component: {fileID: 5335276864964391049}
   - component: {fileID: 6952675828654182454}
-  - component: {fileID: 7330089344414759543}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: EnemyAssaultBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7689150330878740973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.891, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.5, y: 0.2, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -92,11 +92,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7689150330878740973}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5335276864964391049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689150330878740973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75b62af0bb060b47a6f1a67064638c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireingForce: {x: 7, y: 0, z: 0}
+  damage: 20
+  lifetime: 10
+  bulletSpread: 2
 --- !u!54 &6952675828654182454
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -108,24 +124,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &7330089344414759543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7689150330878740973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee0b2cd55268d694fabc0a3df92260a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireingForce: {x: 40, y: 0, z: 0}
-  damage: 3
-  lifetime: 1
-  bulletSpread: 0

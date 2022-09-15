@@ -18,7 +18,7 @@ public class Win : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("WinScene");
-        Debug.Log("You Win");
+        SceneManager.LoadScene("JazzClub");
+        Debug.Log("AudioTest");
     }
 }
