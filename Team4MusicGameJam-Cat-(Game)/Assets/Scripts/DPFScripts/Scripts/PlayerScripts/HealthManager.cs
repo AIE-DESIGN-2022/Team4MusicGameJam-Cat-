@@ -15,6 +15,8 @@ public class HealthManager : MonoBehaviour
 
     private float colourChangeDelay = 0.1f;
 
+    public GameObject deathCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +34,11 @@ public class HealthManager : MonoBehaviour
 
     public void TakeDamage(float damageToTake)
     {
-            currentHealth -= damageToTake;
+        currentHealth -= damageToTake;
 
         if (currentHealth <= 0)
         {
-            //Death stuff
-            Debug.Log("You Died");
-            SceneManager.LoadScene("LooseScene");
-
+            Death();
         }
         timeSinceDamage = 0;
 
@@ -47,7 +46,13 @@ public class HealthManager : MonoBehaviour
         StartCoroutine("ColourChangeWhenHit");
 
     }
-
+    public void Death()
+    {
+        //Death stuff
+        Debug.Log("You Died");
+        deathCanvas.SetActive(true);
+        gameObject.SetActive(false);
+    }
     public void ReceiveHealth(float healthToReceive)
     {
         currentHealth += healthToReceive;

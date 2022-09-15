@@ -11,16 +11,19 @@ public class EnemyProjectile : MonoBehaviour
 
     private Rigidbody bulletRB;
 
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         bulletRB = GetComponent<Rigidbody>();
 
+        transform.LookAt(player.transform.position);
         //Randomise x and y values of firingForce
         fireingForce.x += Random.Range(-bulletSpread, bulletSpread);
         fireingForce.y += Random.Range(-bulletSpread, bulletSpread);
 
-        bulletRB.AddRelativeForce(fireingForce, ForceMode.Impulse);
+        bulletRB.AddForce(fireingForce.x * transform.TransformDirection(Vector3.forward), ForceMode.Impulse);
 
         StartCoroutine("BulletTimer");
     }

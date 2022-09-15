@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6463160631972660815}
   - component: {fileID: 587504739328070541}
   - component: {fileID: 633667816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallCheckRight
   m_TagString: Detector
   m_Icon: {fileID: 0}
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 4641343456186359926}
   - component: {fileID: 7167324587583000776}
   - component: {fileID: 1601659231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallCheckLeft
   m_TagString: Detector
   m_Icon: {fileID: 0}

@@ -59,7 +59,7 @@ public class CharacterController : MonoBehaviour
 			{
 				m_Grounded = true;
 				if (!wasGrounded)
-					OnLandEvent.Invoke();
+				OnLandEvent.Invoke();
 			}
 		}
 	}
@@ -172,4 +172,12 @@ public class CharacterController : MonoBehaviour
 		}
 
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "KillBox")
+        {
+			GetComponent<HealthManager>().Death();
+        }
+    }
 }
