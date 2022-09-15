@@ -36,6 +36,7 @@ public class EnemyNav : MonoBehaviour
 
     public Vector3 nextPoint;
     public float speed;
+    public Transform gunRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -143,9 +144,9 @@ public class EnemyNav : MonoBehaviour
         //rest of update dictates what the enemy will do depending on its state.
         if (enemyState == EnemyState.Patrol)
         {
-           
-                
-                transform.position = Vector3.MoveTowards(transform.position, nextPoint, speed * Time.deltaTime);
+            gunRotation.transform.rotation = Quaternion.identity;
+
+            transform.position = Vector3.MoveTowards(transform.position, nextPoint, speed * Time.deltaTime);
             //checking if the enemy has reached its patrol point with some threshold allowance for distance.
             if (distanceToTarget <= distanceReachedThreshold)
             {
@@ -166,6 +167,7 @@ public class EnemyNav : MonoBehaviour
         //We checked earler if the player is close enough to be sighted
         if (enemyState == EnemyState.PlayerSighted)
         {
+
             Debug.Log("player sighted");
             //settin ght eenemy destination to the last seen player posisition rather than a patrol point.
             //nextPoint = player.transform.position;
@@ -194,14 +196,18 @@ public class EnemyNav : MonoBehaviour
         //checking if the enemy state is to attack
         if(enemyState == EnemyState.PlayerAttack)
         {
+            
             if (player.transform.position.x > transform.position.x)
             {
                 transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.z);
+                //gunRotation.transform.rotation = Quaternion.Euler(gunRotation.transform.eulerAngles.x, gunRotation.transform.eulerAngles.y, gunRotation.transform.eulerAngles.z);
+                
             }
             else if (player.transform.position.x < transform.position.x)
             {
                 transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 270, transform.eulerAngles.z);
             }
+            gunRotation.transform.LookAt(player.transform.position);
             //check to see if the player is out of attack range, if it is we set state to player sighted so enemy chases player
             if (Vector3.Distance(transform.position, player.transform.position) > attackRange)
             {

@@ -31,26 +31,11 @@ public class EnemyCombat : MonoBehaviour
     //public GameObject enemyProjectile;
     public Transform spawnPosition;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {
-/*        if (enemyWeaponState == EnemyWeaponState.Pistol)
-        {
-            TurnOffEnemyGuns();
-            pistol.SetActive(true);
-        }
-
-        if (enemyWeaponState == EnemyWeaponState.AssaultRifle)
-        {
-            TurnOffEnemyGuns();
-            assaultRifle.SetActive(true);
-        }
-
-        if (enemyWeaponState == EnemyWeaponState.Shotgun)
-        {
-            TurnOffEnemyGuns();
-            shotgun.SetActive(true);
-        }*/
 
         player = GameObject.FindGameObjectWithTag("Player");
         canAttack = true;
@@ -59,6 +44,7 @@ public class EnemyCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (enemyWeaponState == EnemyWeaponState.Pistol)
         {
             TurnOffEnemyGuns();
