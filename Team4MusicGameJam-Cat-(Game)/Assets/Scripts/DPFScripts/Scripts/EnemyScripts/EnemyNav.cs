@@ -118,6 +118,7 @@ public class EnemyNav : MonoBehaviour
         //checking wether the distance from the player is less than the assigned threshold for the enemy to begin chasing
         if(CanSeePlayer())
         {
+            Debug.Log("seen player");
             //change enemy state to player sighted
             enemyState = EnemyState.PlayerSighted;
 
@@ -141,13 +142,15 @@ public class EnemyNav : MonoBehaviour
         //We checked earler if the player is close enough to be sighted
         if (enemyState == EnemyState.PlayerSighted)
         {
+            Debug.Log("player sighted");
             //settin ght eenemy destination to the last seen player posisition rather than a patrol point.
-            SetPlayerSightedDestination();
+            nextPoint = player.transform.position;
 
             //attack range should not be reached before player sighted so these if satements are nested
             //if the player is within attack range, setting the state to attack
             if(Vector3.Distance(transform.position, player.transform.position) <= attackRange && CanSeePlayer())
             {
+                Debug.Log("close enough");
                 enemyState = EnemyState.PlayerAttack;
             }
 
@@ -172,10 +175,11 @@ public class EnemyNav : MonoBehaviour
             //otherwise the player is in range
             else
             {
+                Debug.Log("attacking");
                 //setting the enemy destanation to its own position to make it stop moving
                 //agent.SetDestination(transform.position);
                 //make the enemy look at the player so that it fires projectioles in the corect derection
-                //agent.transform.LookAt(player.transform.position);
+                //transform.LookAt(player.transform.position);
 
                 //inititing our attack function making sure we attack x secons
                 //(assigned by the attackSpeed verable on the EnemyCombat script)
