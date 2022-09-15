@@ -172,4 +172,12 @@ public class CharacterController : MonoBehaviour
 		}
 
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "KillBox")
+        {
+			GetComponent<HealthManager>().Death();
+        }
+    }
 }

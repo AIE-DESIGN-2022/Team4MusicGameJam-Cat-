@@ -38,10 +38,7 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            //Death stuff
-            Debug.Log("You Died");
-            deathCanvas.SetActive(true);
-            gameObject.SetActive(false);
+            Death();
         }
         timeSinceDamage = 0;
 
@@ -49,7 +46,13 @@ public class HealthManager : MonoBehaviour
         StartCoroutine("ColourChangeWhenHit");
 
     }
-
+    public void Death()
+    {
+        //Death stuff
+        Debug.Log("You Died");
+        deathCanvas.SetActive(true);
+        gameObject.SetActive(false);
+    }
     public void ReceiveHealth(float healthToReceive)
     {
         currentHealth += healthToReceive;
