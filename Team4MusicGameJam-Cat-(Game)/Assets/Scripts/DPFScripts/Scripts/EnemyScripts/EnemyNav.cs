@@ -55,6 +55,9 @@ public class EnemyNav : MonoBehaviour
 
     bool CanSeePlayer()
     {
+        int layerMask =  1 << 9;
+
+        layerMask = ~layerMask;
         RaycastHit PatrolHit;
         if (_characterController.wasCrouched)
         {
@@ -64,7 +67,7 @@ public class EnemyNav : MonoBehaviour
         {
             sightRange = sightRangeStanding;
         }
-        if(Physics.Raycast(transform.position, transform.forward, out PatrolHit, sightRange) && enemyState == EnemyState.Patrol)
+        if(Physics.Raycast(transform.position, transform.forward,  out PatrolHit, sightRange, layerMask, QueryTriggerInteraction.Ignore) && enemyState == EnemyState.Patrol)
         {
             Debug.DrawRay(transform.position, transform.forward * sightRange, Color.blue);
             if(PatrolHit.transform.tag == "Player")
@@ -82,7 +85,7 @@ public class EnemyNav : MonoBehaviour
             lookAtObject.transform.LookAt(player.transform.position);
         }
         RaycastHit AttackHit;
-        if (Physics.Raycast(transform.position, lookAtObject.transform.forward, out AttackHit, sightRange) && enemyState == EnemyState.PlayerAttack || enemyState == EnemyState.PlayerSighted)
+        if (Physics.Raycast(transform.position, lookAtObject.transform.forward, out AttackHit, sightRange, layerMask, QueryTriggerInteraction.Ignore) && enemyState == EnemyState.PlayerAttack || enemyState == EnemyState.PlayerSighted)
         {
             Debug.DrawRay(transform.position, lookAtObject.transform.forward * sightRange, Color.red);
             if (AttackHit.transform.tag == "Player")

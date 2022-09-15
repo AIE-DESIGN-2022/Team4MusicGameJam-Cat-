@@ -716,11 +716,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2769443021339109331, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2769443021339109331, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: reticleImage
@@ -780,7 +776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3649927935039546607, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
