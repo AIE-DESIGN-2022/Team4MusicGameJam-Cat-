@@ -23,6 +23,8 @@ public class CombatManager : MonoBehaviour
     public AudioClip[] sounds;
     private AudioSource source;
 
+    public AudioSource ChargeAttackSound;
+
     // charging variables
     [SerializeField] private float 
     m_chargeProgress = 0, m_chargeProgressPercent = 0, m_lastChargeProgressPercent = 0, 
@@ -89,6 +91,7 @@ public class CombatManager : MonoBehaviour
                     {
                         GameObject projectile = Instantiate(chargedProjectile, spawnPosition.position, spawnPosition.rotation);
                         chargedProjectiles.Add(projectile);
+                        ChargeAttackSound.Play();
                     }
 
                     Vector3 dir = (transform.position - gunRotation.GetChild(1).position).normalized;
