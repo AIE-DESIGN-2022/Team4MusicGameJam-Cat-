@@ -82,7 +82,9 @@ public class EnemyNav : MonoBehaviour
         }
         if(enemyState == EnemyState.PlayerSighted)
         {
+            Debug.Log("looking at player");
             lookAtObject.transform.LookAt(player.transform.position);
+            return true;
         }
         RaycastHit AttackHit;
         if (Physics.Raycast(transform.position, lookAtObject.transform.forward, out AttackHit, sightRange, layerMask, QueryTriggerInteraction.Ignore) && enemyState == EnemyState.PlayerAttack || enemyState == EnemyState.PlayerSighted)
@@ -147,7 +149,7 @@ public class EnemyNav : MonoBehaviour
         {
             Debug.Log("player sighted");
             //settin ght eenemy destination to the last seen player posisition rather than a patrol point.
-            nextPoint = player.transform.position;
+            //nextPoint = player.transform.position;
 
             //attack range should not be reached before player sighted so these if satements are nested
             //if the player is within attack range, setting the state to attack
@@ -155,6 +157,10 @@ public class EnemyNav : MonoBehaviour
             {
                 Debug.Log("close enough");
                 enemyState = EnemyState.PlayerAttack;
+            }
+            else
+            {
+                enemyState = EnemyState.Patrol;
             }
 
             //if the player outruns the enemys sight range will return to patrol mode
