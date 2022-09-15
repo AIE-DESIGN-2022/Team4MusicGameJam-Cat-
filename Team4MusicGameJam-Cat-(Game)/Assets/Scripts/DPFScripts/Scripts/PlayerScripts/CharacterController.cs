@@ -34,6 +34,9 @@ public class CharacterController : MonoBehaviour
 	private bool m_wasCrouching = false;
 	public bool canInteract = true;
 
+	public GameObject checkLeft;
+	public GameObject checkRight;
+
 	private void Awake()
 	{
 		m_Rigidbody = GetComponent<Rigidbody>();

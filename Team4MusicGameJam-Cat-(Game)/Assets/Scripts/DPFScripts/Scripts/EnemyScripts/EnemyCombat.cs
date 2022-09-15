@@ -49,7 +49,7 @@ public class EnemyCombat : MonoBehaviour
         {
             TurnOffEnemyGuns();
             pistol.SetActive(true);
-            attackTime = 0.4f;
+            //attackTime = 0.4f;
 
         }
         if (enemyWeaponState == EnemyWeaponState.AssaultRifle)
