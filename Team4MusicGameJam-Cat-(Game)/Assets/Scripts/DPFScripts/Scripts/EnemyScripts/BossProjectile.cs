@@ -40,13 +40,17 @@ public class BossProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Bullet")
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player" )
             {
                 other.gameObject.GetComponent<HealthManager>().TakeDamage(damage);
+            }
+            else if (other.gameObject.tag == "Detector")
+            {
+                other.transform.parent.gameObject.GetComponent<HealthManager>().TakeDamage(damage);
             }
 
             Destroy(gameObject);
