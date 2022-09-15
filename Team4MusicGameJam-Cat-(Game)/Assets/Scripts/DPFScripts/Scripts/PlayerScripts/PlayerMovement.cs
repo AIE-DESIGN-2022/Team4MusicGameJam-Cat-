@@ -16,10 +16,18 @@ public class PlayerMovement : MonoBehaviour
     public bool wallToRight;
     public bool wallToleft;
 
+    [SerializeField] float dashCooldownTimer = 0, dashCooldown = 2;
+    [SerializeField] ParticleSystem dashParticle;
+
+    [SerializeField] private Vector3 dashVelocity = new Vector3(50, 0, 0);
+
     // Update is called once per frame
     void Update()
     {
-       horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        dashCooldownTimer += Time.deltaTime;
+
+
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -32,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetButtonUp("Crouch"))
         {
-            crouch= false;
+            crouch = false;
         }
 
         if (Input.GetButtonDown("Move Left"))
@@ -45,6 +53,27 @@ public class PlayerMovement : MonoBehaviour
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
         }
 
+        if (Input.GetButtonDown("Dash"))
+        {
+            if (dashCooldownTimer >= dashCooldown)
+            {
+                StartCoroutine("DashParticle");
+                dashCooldownTimer = 0;
+                transform.GetComponent<Rigidbody>().AddRelativeForce(dashVelocity, ForceMode.Impulse);
+                
+            }
+            
+        }
+
+    }
+
+    IEnumerator DashParticle()
+    {
+        ParticleSystem particle = Instantiate(dashParticle, transform);
+        particle.transform.localPosition = new Vector3(0, 0, 0);
+        particle.Play();
+        yield return new WaitForSeconds(0.2f);
+        Destroy(particle);
     }
 
     void FixedUpdate()

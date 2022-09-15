@@ -13,6 +13,8 @@ public class HealthManager : MonoBehaviour
 
     private float timeSinceDamage;
 
+    [SerializeField] private float invinsibilityTime = 0.5f;
+
     private float colourChangeDelay = 0.1f;
 
     public GameObject deathCanvas;
@@ -34,16 +36,20 @@ public class HealthManager : MonoBehaviour
 
     public void TakeDamage(float damageToTake)
     {
-        currentHealth -= damageToTake;
-
-        if (currentHealth <= 0)
+        if (timeSinceDamage > invinsibilityTime)
         {
-            Death();
-        }
-        timeSinceDamage = 0;
+            currentHealth -= damageToTake;
 
-        UpdateHealthBar();
-        StartCoroutine("ColourChangeWhenHit");
+            if (currentHealth <= 0)
+            {
+                Death();
+            }
+            timeSinceDamage = 0;
+
+            UpdateHealthBar();
+            StartCoroutine("ColourChangeWhenHit");
+        }
+        
 
     }
     public void Death()
