@@ -34,6 +34,17 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch= false;
         }
+
+        if (Input.GetButtonDown("Move Left"))
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z);
+        }
+
+        if (Input.GetButtonDown("Move Right"))
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
+        }
+
     }
 
     void FixedUpdate()
