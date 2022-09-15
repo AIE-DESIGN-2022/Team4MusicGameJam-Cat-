@@ -229,8 +229,8 @@ CapsuleCollider:
   m_GameObject: {fileID: 8276035175068702413}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1
+  m_Enabled: 0
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -247,9 +247,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWeaponState: 0
-  enemyPistolProjectile: {fileID: 7689150330878740973, guid: 01a76079790234c42bd6318a5012dbf8, type: 3}
-  enemyAssaultRifleProjectile: {fileID: 7689150330878740973, guid: 5d5755e51902eef4397b276366a8e154, type: 3}
-  enemyShotgunProjectile: {fileID: 7689150330878740973, guid: 3e90fa52a35b700468056ccd847ee681, type: 3}
+  enemyPistolProjectile: {fileID: 7689150330878740973, guid: d793b23145cd49841980c7d9b79f2d79, type: 3}
+  enemyAssaultRifleProjectile: {fileID: 7689150330878740973, guid: a86dd1566b3326f41871ce124a7f533c, type: 3}
+  enemyShotgunProjectile: {fileID: 7689150330878740973, guid: 32a4735b75239574a882a946669eb1b8, type: 3}
   pistol: {fileID: 8277064025529304165}
   assaultRifle: {fileID: 386549977648623234}
   shotgun: {fileID: 3001110713629089637}
@@ -285,19 +285,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPoints:
-  - {x: 8.2723367e-10, y: 0.000013732163, z: 6.799724e+22}
-  - {x: 0.00000016876663, y: 0.000000010557691, z: 2.0568114e+20}
+  - {x: 6, y: 2.8, z: 0}
+  - {x: 14, y: 2.8, z: 0}
   distanceReachedThreshold: 1
   playerChaseThreshold: 5
-  attackRange: 8
-  sightRange: 50
-  sightRangeCrouched: 25
-  sightRangeStanding: 50
+  attackRange: 9
+  sightRange: 8
+  sightRangeCrouched: 8
+  sightRangeStanding: 8
   enemyState: 0
   enemyCombat: {fileID: 0}
   lookAtObject: {fileID: 8675580892566587496}
   nextPoint: {x: 0, y: 0, z: 0}
-  speed: 0
+  speed: 4
   gunRotation: {fileID: 8113518652162078520}
 --- !u!195 &8276035175068702408
 NavMeshAgent:
@@ -306,7 +306,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8276035175068702413}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2
