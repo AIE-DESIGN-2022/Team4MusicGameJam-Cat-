@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public bool wallToRight;
     public bool wallToLeft;
 
+    private bool facingLeft;
+
     public GameObject rightWall;
     public GameObject leftWall;
 
@@ -49,15 +51,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Move Left"))
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z);
-            rightWall.GetComponent<DetectWalls>().right = false;
-            leftWall.GetComponent<DetectWalls>().right = true;
+            rightWall.transform.position = transform.position + new Vector3(-0.2f, 0, 0);
+            leftWall.transform.position = transform.position + new Vector3(0.2f, 0, 0);
+            facingLeft = true;
         }
 
         if (Input.GetButtonDown("Move Right"))
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
-            leftWall.GetComponent<DetectWalls>().right = true;
-            rightWall.GetComponent<DetectWalls>().right = false;
+            rightWall.transform.position = transform.position + new Vector3(0.2f, 0, 0);
+            leftWall.transform.position = transform.position + new Vector3(-0.2f, 0, 0);
+            facingLeft = false;
         }
 
         if (Input.GetButtonDown("Dash"))
@@ -86,18 +90,24 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Move our character
-        if (wallToRight && horizontalMove > 0)
+        if (wallToRight && horizontalMove > 0 && !facingLeft)
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y);
             controller.Move(0, crouch, jump);
             jump = false;
         }
-        else if (wallToLeft && horizontalMove < 0)
+        else if (wallToRight && horizontalMove < 0 && facingLeft)
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y);
             controller.Move(0, crouch, jump);
             jump = false;
         }
+        /*else if (wallToLeft && horizontalMove < 0)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y);
+            controller.Move(0, crouch, jump);
+            jump = false;
+        }*/
         else
         {
             controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
