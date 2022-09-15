@@ -34,6 +34,9 @@ public class CharacterController : MonoBehaviour
 	private bool m_wasCrouching = false;
 	public bool canInteract = true;
 
+	public GameObject checkLeft;
+	public GameObject checkRight;
+
 	private void Awake()
 	{
 		m_Rigidbody = GetComponent<Rigidbody>();
@@ -59,7 +62,7 @@ public class CharacterController : MonoBehaviour
 			{
 				m_Grounded = true;
 				if (!wasGrounded)
-					OnLandEvent.Invoke();
+				OnLandEvent.Invoke();
 			}
 		}
 	}
@@ -172,4 +175,12 @@ public class CharacterController : MonoBehaviour
 		}
 
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "KillBox")
+        {
+			GetComponent<HealthManager>().Death();
+        }
+    }
 }

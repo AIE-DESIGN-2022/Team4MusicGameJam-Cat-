@@ -11,24 +11,21 @@ public class EnemyProjectile : MonoBehaviour
 
     private Rigidbody bulletRB;
 
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         bulletRB = GetComponent<Rigidbody>();
 
+        transform.LookAt(player.transform.position);
         //Randomise x and y values of firingForce
         fireingForce.x += Random.Range(-bulletSpread, bulletSpread);
         fireingForce.y += Random.Range(-bulletSpread, bulletSpread);
 
-        bulletRB.AddRelativeForce(fireingForce, ForceMode.Impulse);
+        bulletRB.AddForce(fireingForce.x * transform.TransformDirection(Vector3.forward), ForceMode.Impulse);
 
         StartCoroutine("BulletTimer");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     IEnumerator BulletTimer()
@@ -37,13 +34,17 @@ public class EnemyProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Bullet")
         {
             if (other.gameObject.tag == "Player")
             {
                 other.gameObject.GetComponent<HealthManager>().TakeDamage(damage);
+            }
+            else if (other.gameObject.tag == "Detector")
+            {
+                other.transform.parent.gameObject.GetComponent<HealthManager>().TakeDamage(damage);
             }
 
             Destroy(gameObject);

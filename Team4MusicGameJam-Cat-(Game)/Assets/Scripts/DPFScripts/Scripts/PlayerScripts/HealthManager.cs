@@ -13,7 +13,11 @@ public class HealthManager : MonoBehaviour
 
     private float timeSinceDamage;
 
+    [SerializeField] private float invinsibilityTime = 0.5f;
+
     private float colourChangeDelay = 0.1f;
+
+    public GameObject deathCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -32,22 +36,29 @@ public class HealthManager : MonoBehaviour
 
     public void TakeDamage(float damageToTake)
     {
+        if (timeSinceDamage > invinsibilityTime)
+        {
             currentHealth -= damageToTake;
 
-        if (currentHealth <= 0)
-        {
-            //Death stuff
-            Debug.Log("You Died");
-            SceneManager.LoadScene("LooseScene");
+            if (currentHealth <= 0)
+            {
+                Death();
+            }
+            timeSinceDamage = 0;
 
+            UpdateHealthBar();
+            StartCoroutine("ColourChangeWhenHit");
         }
-        timeSinceDamage = 0;
-
-        UpdateHealthBar();
-        StartCoroutine("ColourChangeWhenHit");
+        
 
     }
-
+    public void Death()
+    {
+        //Death stuff
+        Debug.Log("You Died");
+        deathCanvas.SetActive(true);
+        gameObject.SetActive(false);
+    }
     public void ReceiveHealth(float healthToReceive)
     {
         currentHealth += healthToReceive;

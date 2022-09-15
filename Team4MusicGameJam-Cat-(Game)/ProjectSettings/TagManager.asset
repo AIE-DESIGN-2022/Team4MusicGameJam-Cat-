@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Floor
   - Detector
+  - KillBox
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - PlayerBullet
   - Player
-  - m_WhatIsGround
+  - Detector
   - 
   - 
   - 
