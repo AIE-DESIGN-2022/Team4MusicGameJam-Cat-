@@ -255,7 +255,7 @@ MonoBehaviour:
   shotgun: {fileID: 3001110713629089637}
   canAttack: 1
   Meleedamage: 0
-  attackTime: 0.4
+  attackTime: 1.2
   isRangedEnemy: 1
   spawnPosition: {fileID: 8276035175565475653}
 --- !u!114 &8276035175068702411

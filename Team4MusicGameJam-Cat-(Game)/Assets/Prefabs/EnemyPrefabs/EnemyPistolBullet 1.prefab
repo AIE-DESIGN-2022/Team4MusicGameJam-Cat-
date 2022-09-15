@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 6952675828654182454}
   - component: {fileID: 8034647988109683283}
   m_Layer: 0
-  m_Name: EnemyBullet 1
+  m_Name: EnemyPistolBullet 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ Transform:
   m_GameObject: {fileID: 7689150330878740973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.891, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.05, y: 0.3, z: 0.5}
   m_Children:
   - {fileID: 3730547341606271508}
   m_Father: {fileID: 0}
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0b2cd55268d694fabc0a3df92260a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireingForce: {x: 40, y: 0, z: 0}
+  fireingForce: {x: 10, y: 0, z: 0}
   damage: 3
   lifetime: 1
   bulletSpread: 0
