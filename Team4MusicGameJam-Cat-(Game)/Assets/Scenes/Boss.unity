@@ -13700,7 +13700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 1
+  maxHealth: 230
   boss: 1
   winSound: {fileID: 1579326954}
 --- !u!114 &8276035174330684473
