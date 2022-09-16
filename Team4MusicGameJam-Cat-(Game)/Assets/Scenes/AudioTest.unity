@@ -351,6 +351,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8276035175068702411, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
+      propertyPath: sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276035175068702411, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc0b864a15b09a34ebd2564cef96ce28, type: 3}
+    - target: {fileID: 8276035175068702411, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
+      propertyPath: sounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 87881e6ef81969a47a697632163174b1, type: 3}
+    - target: {fileID: 8276035175068702411, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
+      propertyPath: sounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 61c398259399683498db2ee748cf9b11, type: 3}
+    - target: {fileID: 8276035175068702411, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
+      propertyPath: sounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: ae8803b37bd644844be85971b1a53e55, type: 3}
+    - target: {fileID: 8276035175068702411, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
+      propertyPath: sounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 192e40c78103a2c468e2e2362dce2423, type: 3}
+    - target: {fileID: 8276035175068702411, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
+      propertyPath: sounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: a6e99f6d271f7264aa2a63d67bf73f89, type: 3}
     - target: {fileID: 8276035175068702413, guid: dee44158997357f4f9a4c560fbd40649, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -463,6 +491,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2308038621609096661, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 662939541052652009, guid: ed5c7375c8e5ebb4482d4cea32cc03c8, type: 2}
     - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_chargeProgressBar
       value: 
