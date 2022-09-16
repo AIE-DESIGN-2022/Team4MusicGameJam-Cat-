@@ -596,10 +596,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5283461123984674153, guid: 98d61b1e1f95363418963042357c25d8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -238.80173
-      objectReference: {fileID: 0}
     - target: {fileID: 5283461124106613377, guid: 98d61b1e1f95363418963042357c25d8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13374,14 +13370,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1661812107182164562, guid: 79578ace7f37ddb4c86f7f81224920bf, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1661812107182164563, guid: 79578ace7f37ddb4c86f7f81224920bf, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -333.25
-      objectReference: {fileID: 0}
     - target: {fileID: 1661812107215395185, guid: 79578ace7f37ddb4c86f7f81224920bf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -13703,6 +13691,7 @@ MonoBehaviour:
   maxHealth: 230
   boss: 1
   winSound: {fileID: 1579326954}
+  sounds: []
 --- !u!114 &8276035174330684473
 MonoBehaviour:
   m_ObjectHideFlags: 0
