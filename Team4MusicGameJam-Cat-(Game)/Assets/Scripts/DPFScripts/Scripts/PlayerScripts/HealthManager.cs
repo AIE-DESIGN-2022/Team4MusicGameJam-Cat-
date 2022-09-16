@@ -44,10 +44,14 @@ public class HealthManager : MonoBehaviour
             {
                 Death();
             }
-            timeSinceDamage = 0;
+            else
+            {
+                timeSinceDamage = 0;
 
+               
+                StartCoroutine("ColourChangeWhenHit");
+            }
             UpdateHealthBar();
-            StartCoroutine("ColourChangeWhenHit");
         }
         
 
