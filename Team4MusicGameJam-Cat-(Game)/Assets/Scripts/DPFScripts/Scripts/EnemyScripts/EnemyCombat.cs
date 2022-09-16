@@ -31,7 +31,7 @@ public class EnemyCombat : MonoBehaviour
     //public GameObject enemyProjectile;
     public Transform spawnPosition;
 
-   
+    public AudioSource gunShot;
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +76,7 @@ public class EnemyCombat : MonoBehaviour
             if (enemyWeaponState == EnemyWeaponState.Pistol)
             {
                 GameObject projectileClone = Instantiate(enemyPistolProjectile, spawnPosition.position, spawnPosition.rotation);
+                gunShot.Play();
               
             }
             if (enemyWeaponState == EnemyWeaponState.AssaultRifle)

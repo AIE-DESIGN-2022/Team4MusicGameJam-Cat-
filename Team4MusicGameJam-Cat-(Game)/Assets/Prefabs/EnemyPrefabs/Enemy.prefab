@@ -127,6 +127,7 @@ MonoBehaviour:
   attackTime: 1.2
   isRangedEnemy: 1
   spawnPosition: {fileID: 956473630877240383}
+  gunShot: {fileID: 0}
 --- !u!114 &8276035175068702411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,6 +441,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 675a2a0fbb3c9c047b5cbc04eec6f7b3, type: 2}
+    - target: {fileID: 943456836522945169, guid: d1eca32163a090248b751de65ac162ce, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a82133cb4d1ad614ca6c4be61701649c, type: 2}
+    - target: {fileID: 6213392834397727775, guid: d1eca32163a090248b751de65ac162ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845417937674083832, guid: d1eca32163a090248b751de65ac162ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1eca32163a090248b751de65ac162ce, type: 3}
 --- !u!4 &9195349435914565266 stripped
