@@ -38,7 +38,6 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private bool isFullyCharged = false, isOnCooldown = false;
 
     [SerializeField] private Slider m_chargeProgressBar;
-    [SerializeField] private RectTransform m_cooldownDisplay;
 
     [SerializeField] private float m_recoilMultiplier = 20;
     // Start is called before the first frame update.
@@ -53,7 +52,6 @@ public class CombatManager : MonoBehaviour
         //Sets the pistol model and childern to be active.
         pistol.SetActive(true);
 
-        m_cooldownDisplay.offsetMax = new Vector3(m_cooldownDisplay.offsetMax.x, -(100 - m_cooldownPercent));
     }
 
     // Update is called once per frame
@@ -124,7 +122,6 @@ public class CombatManager : MonoBehaviour
 
             m_cooldownPercent = m_cooldownTimer / m_cooldownTime * 100;
             m_chargeProgressBar.value = 100 - m_cooldownPercent;
-            m_cooldownDisplay.offsetMax = new Vector3(m_cooldownDisplay.offsetMax.x, -(100 - m_cooldownPercent));
         }
         
         
