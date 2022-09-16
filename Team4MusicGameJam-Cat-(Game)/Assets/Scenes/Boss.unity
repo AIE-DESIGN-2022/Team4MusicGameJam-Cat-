@@ -596,6 +596,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5283461123984674153, guid: 98d61b1e1f95363418963042357c25d8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -238.80173
+      objectReference: {fileID: 0}
     - target: {fileID: 5283461124106613377, guid: 98d61b1e1f95363418963042357c25d8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1589,8 +1593,8 @@ AudioSource:
   m_GameObject: {fileID: 1579326953}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6bcd81ea155a71a4d8d5c22c750e8a8b, type: 3}
+  OutputAudioMixerGroup: {fileID: 1843697741617217648, guid: ed5c7375c8e5ebb4482d4cea32cc03c8, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 05ae91d3265b2b045b3a76f9991ee030, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1995,7 +1999,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-48458
+  m_Name: pb_Mesh102260
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13370,6 +13374,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1661812107182164562, guid: 79578ace7f37ddb4c86f7f81224920bf, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661812107182164563, guid: 79578ace7f37ddb4c86f7f81224920bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -333.25
+      objectReference: {fileID: 0}
     - target: {fileID: 1661812107215395185, guid: 79578ace7f37ddb4c86f7f81224920bf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -13688,7 +13700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 230
+  maxHealth: 1
   boss: 1
   winSound: {fileID: 1579326954}
 --- !u!114 &8276035174330684473
