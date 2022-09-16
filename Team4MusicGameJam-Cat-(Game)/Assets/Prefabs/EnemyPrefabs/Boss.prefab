@@ -201,6 +201,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e3d50a2f60f063a4fb5c08cc6d93feb2, type: 3}
   - {fileID: 8300000, guid: fd9c85e0234591c4183d5bce2ff9ea83, type: 3}
   source: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &4012566626495141984
 MonoBehaviour:
   m_ObjectHideFlags: 0
