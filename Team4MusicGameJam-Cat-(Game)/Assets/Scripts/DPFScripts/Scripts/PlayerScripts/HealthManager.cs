@@ -21,6 +21,9 @@ public class HealthManager : MonoBehaviour
 
     [SerializeField] GameObject shield;
 
+    public AudioClip[] sounds;
+    private AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +53,9 @@ public class HealthManager : MonoBehaviour
         if (timeSinceDamage > invinsibilityTime)
         {
             currentHealth -= damageToTake;
+
+            source.clip = sounds[Random.Range(0, sounds.Length)];
+            source.Play();
 
             if (currentHealth <= 0)
             {
