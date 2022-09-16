@@ -285,8 +285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPoints:
-  - {x: 6, y: 2.8, z: 0}
-  - {x: 14, y: 2.8, z: 0}
+  - {x: 87.24825, y: 9.207983, z: -112.23}
+  - {x: 63.08541, y: 2.749903, z: -112.23}
   distanceReachedThreshold: 1
   playerChaseThreshold: 5
   attackRange: 9

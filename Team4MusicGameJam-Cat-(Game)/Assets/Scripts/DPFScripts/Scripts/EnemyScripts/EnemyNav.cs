@@ -244,6 +244,11 @@ public class EnemyNav : MonoBehaviour
             // adding 1 to the nextLocation so that next time we run through the function we are checking the next point in the array
             currentDestination = nextLocation;
             nextLocation++;
+
+            if(nextLocation == 2)
+            {
+                nextLocation = 0;
+            }
             SetPlayerSightedDestination();
         }
         //Otherwise we are out of patrol points so go back to the first one and start the loop again.
