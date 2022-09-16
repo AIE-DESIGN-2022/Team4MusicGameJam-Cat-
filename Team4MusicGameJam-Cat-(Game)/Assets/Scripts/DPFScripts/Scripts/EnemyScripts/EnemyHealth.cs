@@ -11,6 +11,9 @@ public class EnemyHealth : MonoBehaviour
 
     private float colourChangeDelay = 0.1f;
 
+    public bool boss;
+    public AudioSource winSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void onDeath()
     {
+
+        if (boss)
+        {
+            winSound.Play();
+        }
         Destroy(gameObject);
     }
     IEnumerator ColourChangeWhenHit()
