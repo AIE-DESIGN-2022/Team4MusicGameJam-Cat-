@@ -30583,6 +30583,30 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1453926717}
+    - target: {fileID: 5094850529609235912, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.54370373
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094850529609235912, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.54370373
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094850529609235912, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5437037
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094850529609235912, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 95.626
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094850529609235912, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.2479
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094850529609235912, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 24.716
+      objectReference: {fileID: 0}
     - target: {fileID: 5302450913637813584, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -31639,6 +31663,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 798901805}
+    - target: {fileID: 9149007416553871906, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149007416553871906, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
+      propertyPath: m_SelectedFaces.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149007416553871906, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9149007416553871908, guid: 705f08c8bd0ba9a4cab7d95847a54b0c, type: 3}
       propertyPath: m_Mesh
       value: 
