@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5893735099409816071}
   - component: {fileID: 5893735099409816070}
   m_Layer: 0
-  m_Name: Cylinder (3)
+  m_Name: PoolCue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -753,7 +753,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 4d9ab9afad6e8c04492b2d698e8f5d52, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
