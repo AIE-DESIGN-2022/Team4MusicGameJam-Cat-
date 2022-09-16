@@ -224,7 +224,7 @@ public class EnemyNav : MonoBehaviour
 
                 //inititing our attack function making sure we attack x secons
                 //(assigned by the attackSpeed verable on the EnemyCombat script)
-                if (enemyCombat.canAttack)
+                if (enemyCombat.canAttack && player.activeInHierarchy)
                 {
                     StartCoroutine(enemyCombat.Attack());
                 }
