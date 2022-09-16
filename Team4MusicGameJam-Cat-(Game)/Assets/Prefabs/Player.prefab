@@ -475,6 +475,7 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   maxHealth: 80
   currentHealth: 0
+  invinsibilityTime: 0.5
   deathCanvas: {fileID: 0}
 --- !u!114 &3027670882822471590
 MonoBehaviour:
@@ -508,7 +509,7 @@ MonoBehaviour:
   m_lastChargeProgressPercent: 0
   m_chargeTime: 2
   m_chargeShootThresholdPercent: 50
-  m_chargeSpeed: 1.5
+  m_chargeSpeed: 2
   m_cooldownTimer: 0
   m_cooldownTime: 3
   m_CDChargeProgressModifier: 100
@@ -550,6 +551,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canInteract: 1
+  checkLeft: {fileID: 0}
+  checkRight: {fileID: 0}
 --- !u!114 &3027670882822471585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,7 +568,13 @@ MonoBehaviour:
   controller: {fileID: 3027670882822471584}
   runSpeed: 40
   wallToRight: 0
-  wallToleft: 0
+  wallToLeft: 0
+  rightWall: {fileID: 0}
+  leftWall: {fileID: 0}
+  dashCooldownTimer: 0
+  dashCooldown: 2
+  dashParticle: {fileID: 0}
+  dashVelocity: {x: 50, y: 0, z: 0}
 --- !u!136 &3027670882822471588
 CapsuleCollider:
   m_ObjectHideFlags: 0
