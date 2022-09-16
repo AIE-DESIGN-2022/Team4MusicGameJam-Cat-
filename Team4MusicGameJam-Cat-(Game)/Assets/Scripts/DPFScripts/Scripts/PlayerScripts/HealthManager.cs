@@ -19,6 +19,8 @@ public class HealthManager : MonoBehaviour
 
     public GameObject deathCanvas;
 
+    [SerializeField] GameObject shield;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,15 @@ public class HealthManager : MonoBehaviour
     private void Update()
     {
         timeSinceDamage += Time.deltaTime;
+
+        if (timeSinceDamage > invinsibilityTime)
+        {
+            shield.SetActive(false);
+        }
+        else
+        {
+            shield.SetActive(true);
+        }
     }
 
 
