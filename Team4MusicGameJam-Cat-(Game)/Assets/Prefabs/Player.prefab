@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6463160631972660815}
   - component: {fileID: 587504739328070541}
   - component: {fileID: 633667816}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: WallCheckRight
   m_TagString: Detector
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2769443021339109331}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3027670882822471595}
@@ -127,7 +127,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0.2, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &587504739328070541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +568,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b7548ff5516d52a4899e9f16db6509c8, type: 3}
   - {fileID: 8300000, guid: e3d50a2f60f063a4fb5c08cc6d93feb2, type: 3}
   - {fileID: 8300000, guid: fd9c85e0234591c4183d5bce2ff9ea83, type: 3}
+  source: {fileID: 0}
 --- !u!114 &3027670882822471590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +606,7 @@ MonoBehaviour:
   m_cooldownTime: 3
   m_CDChargeProgressModifier: 100
   m_cooldownPercent: 0
-  m_numChargedProjectiles: 3
+  m_numChargedProjectiles: 5
   isFullyCharged: 0
   isOnCooldown: 0
   m_chargeProgressBar: {fileID: 0}
@@ -987,13 +988,13 @@ GameObject:
   - component: {fileID: 4641343456186359926}
   - component: {fileID: 7167324587583000776}
   - component: {fileID: 1601659231}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: WallCheckLeft
   m_TagString: Detector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7366461636581070334
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,7 +1003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3649927935039546607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3027670882822471595}
@@ -1021,7 +1022,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: -0.2, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7167324587583000776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,7 +1466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 053a4ed4c00048f48a8055551095d11e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.89
+      value: -1.061
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 053a4ed4c00048f48a8055551095d11e, type: 3}
       propertyPath: m_LocalPosition.z

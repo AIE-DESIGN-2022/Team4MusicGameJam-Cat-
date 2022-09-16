@@ -452,16 +452,6 @@ MonoBehaviour:
   target: {fileID: 1700060064}
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -10}
---- !u!1 &498594594 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2769443021339109331, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-  m_PrefabInstance: {fileID: 688974099}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &551741098 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5283461124165973850, guid: 98d61b1e1f95363418963042357c25d8, type: 3}
-  m_PrefabInstance: {fileID: 687034135}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &566719588
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,50 +699,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2769443021339109331, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3027670882822471584, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: checkLeft
-      value: 
-      objectReference: {fileID: 825111120}
-    - target: {fileID: 3027670882822471584, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: checkRight
-      value: 
-      objectReference: {fileID: 498594594}
-    - target: {fileID: 3027670882822471585, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: leftWall
-      value: 
-      objectReference: {fileID: 825111120}
-    - target: {fileID: 3027670882822471585, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: rightWall
-      value: 
-      objectReference: {fileID: 498594594}
-    - target: {fileID: 3027670882822471585, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: dashParticle
-      value: 
-      objectReference: {fileID: 6628843251505341151, guid: b060a3e006a910a4d9c0e65ba4227204, type: 3}
-    - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: reticleImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: chargedProjectile
-      value: 
-      objectReference: {fileID: 3330535983711673294, guid: 163fca832f38ba54d9dff1119379b3e2, type: 3}
-    - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_cooldownDisplay
-      value: 
-      objectReference: {fileID: 551741098}
     - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_chargeProgressBar
       value: 
       objectReference: {fileID: 1735136255}
-    - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_numChargedProjectiles
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471591, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: deathCanvas
       value: 
@@ -808,30 +758,6 @@ PrefabInstance:
     - target: {fileID: 3027670882822471599, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3226193345073967588, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3649927935039546607, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3649927935039546607, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4641343456186359926, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6463160631972660815, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366461636581070334, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
@@ -1025,11 +951,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &825111120 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3649927935039546607, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
-  m_PrefabInstance: {fileID: 688974099}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1207471464
 GameObject:
   m_ObjectHideFlags: 0
