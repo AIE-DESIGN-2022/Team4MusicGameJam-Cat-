@@ -22,7 +22,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] GameObject shield;
 
     public AudioClip[] sounds;
-    private AudioSource source;
+    public AudioSource source;
 
     // Start is called before the first frame update
     void Start()

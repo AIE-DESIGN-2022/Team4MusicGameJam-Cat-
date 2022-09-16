@@ -220,6 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireingForce: {x: 10, y: 0, z: 0}
-  damage: 3
+  damage: 6
   lifetime: 3
   bulletSpread: 0
