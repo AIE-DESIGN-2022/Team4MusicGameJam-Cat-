@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPoints:
-  - {x: 87.24825, y: 9.207983, z: -112.23}
-  - {x: 63.08541, y: 2.749903, z: -112.23}
+  - {x: 10.00409, y: 5.1056, z: -112.23}
+  - {x: -8.995911, y: -90, z: -112.23}
   distanceReachedThreshold: 1
   playerChaseThreshold: 5
   attackRange: 9
@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13785612, guid: d1eca32163a090248b751de65ac162ce, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 675a2a0fbb3c9c047b5cbc04eec6f7b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1eca32163a090248b751de65ac162ce, type: 3}
 --- !u!4 &9195349435914565266 stripped
