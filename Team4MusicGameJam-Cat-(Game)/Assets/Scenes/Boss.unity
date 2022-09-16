@@ -699,6 +699,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1360790586, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.996
+      objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: m_chargeProgressBar
       value: 
