@@ -103,8 +103,12 @@ public class CombatManager : MonoBehaviour
 
                     //(new Vector3(gunRotation.transform.right.x * xRecoil, -gunRotation.transform.right.y * yRecoil, 0))
 
-                    animator.SetTrigger("Fly");
-                    animator.SetFloat("Walk", 0);
+                    if (!transform.GetComponent<CharacterController>().m_Grounded)
+                    {
+                        animator.SetTrigger("Fly");
+                        animator.SetFloat("Walk", 0);
+                    }
+                    
                 }
 
                 m_lastChargeProgressPercent = m_chargeProgressPercent;
