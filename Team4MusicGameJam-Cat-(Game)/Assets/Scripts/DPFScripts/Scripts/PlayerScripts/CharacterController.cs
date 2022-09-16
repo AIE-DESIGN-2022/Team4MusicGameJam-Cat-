@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class CharacterController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CharacterController : MonoBehaviour
 	[SerializeField] private Collider m_CrouchDisableCollider;				// A collider that will be disabled when crouching
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-	private bool m_Grounded;            // Whether or not the player is grounded.
+	public bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = 1f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody m_Rigidbody;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -37,6 +38,8 @@ public class CharacterController : MonoBehaviour
 	public GameObject checkLeft;
 	public GameObject checkRight;
 
+	Animator animator;
+
 	private void Awake()
 	{
 		m_Rigidbody = GetComponent<Rigidbody>();
@@ -46,6 +49,8 @@ public class CharacterController : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+
+		animator = transform.Find("GamblerCat").GetComponent<Animator>();
 	}
 
 	private void FixedUpdate()
@@ -148,12 +153,20 @@ public class CharacterController : MonoBehaviour
 			if (m_Grounded && jump)
 			{
 				m_Grounded = true;
+				animator.SetTrigger("Jump");
+				animator.SetFloat("Walk", 0);
 				m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce), ForceMode.VelocityChange);
 
 			}
 
 		}
 	}
+
+
+	public void EndJump()
+    {
+		animator.SetTrigger("Land");
+    }
 
 	private void Flip()
 	{

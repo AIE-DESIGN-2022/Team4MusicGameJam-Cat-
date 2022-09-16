@@ -23,7 +23,15 @@ public class ParticleCharge : MonoBehaviour
 
         if (Input.GetButton("Fire2"))
         {
-            particle.SetActive(true);
+            if (!transform.GetComponent<CombatManager>().isOnCooldown)
+            {
+                particle.SetActive(true);
+            }
+            else
+            {
+                particle.SetActive(false);
+            }
+            
         }
         if (Input.GetButtonDown("Fire2"))
         {

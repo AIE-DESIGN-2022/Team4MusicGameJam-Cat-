@@ -26,6 +26,13 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Vector3 dashVelocity = new Vector3(50, 0, 0);
 
+    [SerializeField] Animator animator;
+
+    private void Start()
+    {
+        animator = transform.Find("GamblerCat").GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -64,6 +71,16 @@ public class PlayerMovement : MonoBehaviour
             facingLeft = false;
         }
 
+        if ((Input.GetButton("Move Right") || Input.GetButton("Move Left")) && transform.GetComponent<CharacterController>().m_Grounded)
+        {
+            animator.SetFloat("Walk", 1);
+
+        }
+        else
+        {
+            animator.SetFloat("Walk", 0);
+        }
+
         if (Input.GetButtonDown("Dash"))
         {
             if (dashCooldownTimer >= dashCooldown)
@@ -71,9 +88,13 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine("DashParticle");
                 dashCooldownTimer = 0;
                 transform.GetComponent<Rigidbody>().AddRelativeForce(dashVelocity, ForceMode.Impulse);
-                
+                animator.SetTrigger("Dash");
             }
             
+        }
+        else
+        {
+            //animator.SetBool("Use", false);
         }
 
     }

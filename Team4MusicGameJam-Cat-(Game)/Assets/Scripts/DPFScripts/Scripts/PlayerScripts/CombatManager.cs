@@ -25,6 +25,8 @@ public class CombatManager : MonoBehaviour
 
     public AudioSource ChargeAttackSound;
 
+    Animator animator;
+
     // charging variables
     [SerializeField] private float 
     m_chargeProgress = 0, m_chargeProgressPercent = 0, m_lastChargeProgressPercent = 0, 
@@ -35,7 +37,9 @@ public class CombatManager : MonoBehaviour
 
     [SerializeField] private int m_numChargedProjectiles = 3;
 
-    [SerializeField] private bool isFullyCharged = false, isOnCooldown = false;
+    [SerializeField] private bool isFullyCharged = false;
+    
+    public bool isOnCooldown = false;
 
     [SerializeField] private Slider m_chargeProgressBar;
 
@@ -45,7 +49,7 @@ public class CombatManager : MonoBehaviour
     {
 
         source = GetComponent<AudioSource>();
-
+        animator = transform.Find("GamblerCat").GetComponent<Animator>();
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -98,6 +102,13 @@ public class CombatManager : MonoBehaviour
                     transform.GetComponent<Rigidbody>().AddRelativeForce(dir * m_recoilMultiplier, ForceMode.Impulse);
 
                     //(new Vector3(gunRotation.transform.right.x * xRecoil, -gunRotation.transform.right.y * yRecoil, 0))
+
+                    if (!transform.GetComponent<CharacterController>().m_Grounded)
+                    {
+                        animator.SetTrigger("Fly");
+                        animator.SetFloat("Walk", 0);
+                    }
+                    
                 }
 
                 m_lastChargeProgressPercent = m_chargeProgressPercent;
@@ -156,4 +167,5 @@ public class CombatManager : MonoBehaviour
 
         }
     }
+
 }
