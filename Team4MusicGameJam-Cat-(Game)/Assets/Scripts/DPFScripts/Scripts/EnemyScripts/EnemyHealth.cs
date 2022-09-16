@@ -14,10 +14,14 @@ public class EnemyHealth : MonoBehaviour
     public bool boss;
     public AudioSource winSound;
 
+    public AudioClip[] sounds;
+    public AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,9 +32,12 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damageToTake)
     {
         health -= damageToTake;
-       // healthBar.fillAmount = health / maxHealth;
+        // healthBar.fillAmount = health / maxHealth;
 
-        if(health <= 0)
+        source.clip = sounds[Random.Range(0, sounds.Length)];
+        source.Play();
+
+        if (health <= 0)
         {
             //They Dead
             onDeath();
