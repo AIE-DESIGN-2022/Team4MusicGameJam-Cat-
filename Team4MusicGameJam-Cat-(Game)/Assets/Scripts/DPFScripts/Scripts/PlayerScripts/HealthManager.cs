@@ -29,6 +29,7 @@ public class HealthManager : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthSlider.maxValue = currentHealth;
+        source = GetComponent<AudioSource>();
 
         UpdateHealthBar();
     }
