@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class EnemyHealth : MonoBehaviour
 
     public AudioClip[] sounds;
     public AudioSource source;
+
+    public Slider healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +37,19 @@ public class EnemyHealth : MonoBehaviour
         health -= damageToTake;
         // healthBar.fillAmount = health / maxHealth;
 
-        source.clip = sounds[Random.Range(0, sounds.Length)];
-        source.Play();
+
+            source.clip = sounds[Random.Range(0, sounds.Length)];
+            source.Play();
+        
 
         if (health <= 0)
         {
             //They Dead
             onDeath();
+        }
+        if (boss)
+        {
+            healthBar.value = health / maxHealth;
         }
 
         StartCoroutine("ColourChangeWhenHit");
@@ -52,6 +61,7 @@ public class EnemyHealth : MonoBehaviour
         if (boss)
         {
             winSound.Play();
+            healthBar.enabled = false;
         }
         Destroy(gameObject);
     }
