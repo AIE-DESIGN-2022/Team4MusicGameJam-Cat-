@@ -499,6 +499,10 @@ PrefabInstance:
       propertyPath: m_chargeProgressBar
       value: 
       objectReference: {fileID: 414451222}
+    - target: {fileID: 3027670882822471590, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
+      propertyPath: m_numChargedProjectiles
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3027670882822471591, guid: a889fb0310d684141a7aad668814fd1b, type: 3}
       propertyPath: source
       value: 
